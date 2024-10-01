@@ -5,6 +5,17 @@ local default_plugins = {
   "nvim-lua/plenary.nvim",
 
   {
+    'boganworld/crackboard.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('crackboard').setup({
+        session_key = '7c18e035a91b454ae4fa6d347b9234e02543fbeb52b3198c6e36ecc5ba3111c5',
+      })
+    end,
+  },
+
+
+  {
     "NvChad/base46",
     branch = "v2.0",
     build = function()
@@ -175,12 +186,12 @@ local default_plugins = {
   {
     "numToStr/Comment.nvim",
     keys = {
-      { "gcc", mode = "n", desc = "Comment toggle current line" },
-      { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
-      { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
-      { "gbc", mode = "n", desc = "Comment toggle current block" },
-      { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
-      { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
+      { "gcc", mode = "n",          desc = "Comment toggle current line" },
+      { "gc",  mode = { "n", "o" }, desc = "Comment toggle linewise" },
+      { "gc",  mode = "x",          desc = "Comment toggle linewise (visual)" },
+      { "gbc", mode = "n",          desc = "Comment toggle current block" },
+      { "gb",  mode = { "n", "o" }, desc = "Comment toggle blockwise" },
+      { "gb",  mode = "x",          desc = "Comment toggle blockwise (visual)" },
     },
     init = function()
       require("core.utils").load_mappings "comment"
